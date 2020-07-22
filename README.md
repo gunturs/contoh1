@@ -1,6 +1,7 @@
 ## Judul
 
-ini adalah lsakdfal
+http://github.com - automatic!
+[Terdua](https://github.com/guntur2787/contoh1/dua.md)
 
 > belajar dart
 
