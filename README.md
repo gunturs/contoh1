@@ -1,37 +1,90 @@
-## Welcome to GitHub Pages
+```dart
+import 'package:flutter/material.dart';
 
-You can use the [editor on GitHub](https://github.com/guntur2787/contoh1/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+void main() => runApp(new MyApp());
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: 'Flutter Drawer Layout Demo',
+      debugShowCheckedModeBanner: false,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new MyHomePage(title: 'Flutter Drawer Demo Home Page'),
+    );
+  }
+}
 
-### Markdown
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+  final String title;
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: new Scaffold(
+      appBar: AppBar(
+        title: Text('Developine App Bar'),
+        actions: <Widget>[
+          new IconButton(
+            icon: new Icon(Icons.photo_album),
+            tooltip: 'Hi!',
+            onPressed: () => {},
+          ),
+          new IconButton(
+            icon: new Icon(Icons.pie_chart),
+            tooltip: 'Wow',
+            onPressed: () => {},
+          )
+        ],
+      ),
+      drawer: Drawer(
+          elevation: 20.0,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                accountName: Text('Hammad Tariq'),
+                accountEmail: Text('developine.com@gmail.com'),
+                currentAccountPicture: Image.network(
+                    'https://raw.githubusercontent.com/nurcahyobn/profile/master/pic1-me.jpg'),
+                decoration: BoxDecoration(color: Colors.blueAccent),
+              ),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('Drawer layout Item 1'),
+                onTap: () {
+                  // This line code will close drawer programatically....
+                  Navigator.pop(context);
+                },
+              ),
+              Divider(
+                height: 2.0,
+              ),
+              ListTile(
+                leading: Icon(Icons.accessibility),
+                title: Text('Drawer layout Item 2'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              Divider(
+                height: 2.0,
+              ),
+              ListTile(
+                leading: Icon(Icons.account_box),
+                title: Text('Drawer layout Item 3'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          )),
+    ));
+  }
+}
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/guntur2787/contoh1/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
